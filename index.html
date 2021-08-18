@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	 <title>Yamin's Basic CRUD Operations for Demand Programming Languages</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'/>
+  </head>
+  
+  <body class="container">
+    <a href="" style="text-decoration: none;color:none;" class="text-dark"><h1 style="text-align:center;">Hello, Programmers!</h1></a>
+    <p style="text-align:center;font-size:12px;">Basic CRUD Operations for Demand Programming Languages</p>
+    
+    
+    
+<p style="text-align:center;">
+	
+  <button class="btn-sm btn-primary" style="padding:5px;" data-bs-toggle="collapse" href="#Git" role="button" aria-expanded="false" aria-controls="Git">
+   Git Command <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+  </button>	
+	
+<button class="btn-sm btn-secondary" style="padding:5px;" data-bs-toggle="collapse" href="#virtualenv" role="button" aria-expanded="false" aria-controls="virtualenv">
+   virtualenv <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+  </button>
+	
+  <button class="btn-sm btn-success" style="padding:5px;" data-bs-toggle="collapse" href="#PHPCRUD" role="button" aria-expanded="false" aria-controls="PHPCRUD">
+   PHP+MYSQL CRUD <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+  </button>
+  
+  <button class="btn-sm btn-danger" style="padding:5px;" data-bs-toggle="collapse" href="#DjangoCRUD" role="button" aria-expanded="false" aria-controls="DjangoCRUD">
+   Django CRUD <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+  </button>
+  
+</p>
+
+
+<!-- Git Start-->
+<div class="collapse" id="Git">
+  <div class="card card-body">
+<h1 style="text-align: left;" class="text-primary" data-bs-toggle="collapse" href="#Git" role="button" aria-expanded="false" aria-controls="Git">Git Command Line <i aria-hidden="true" class="fa fa-angle-double-down"></i></h1>
+<hr>
+  
+<h3>At first clone git repository</h3>
+<pre><code> 
+$ git clone http://github.com/needyamin/target-repository.git
+</code></pre>
+	  
+<hr>	  
+<h3>Create an empty Git repository or reinitialize an existing one</h3>
+<pre><code> 
+$ git init 
+</code></pre>
+
+<hr>
+<h3>Add Your Edited Files to Git</h3>
+<pre><code> 
+$ git add .
+</code></pre>
+
+<hr>
+<h3>Check Added Git Status</h3>
+<pre><code> 
+$ git status
+</code></pre>
+
+<hr>
+<h3>Commit your added Git files</h3>
+<pre><code> 
+$ git commit -m "First commit"
+</code></pre>
+
+<hr>
+<h3>Push Your Files to the Main Origin Git Repository</h3>
+<pre><code> 
+$ git push origin main
+</code></pre>
+   
+
+<hr>
+<h3> If want to make new Branch</h3>
+<pre><code> 
+$ git checkout -b yourbranchname
+</code></pre>
+  
+  </div>
+</div>
+<!-- Git End-->
+
+
+<div class="collapse" id="PHPCRUD">
+  <div class="card card-body">
+	  
+	  
+
+<h1 class="text-success" data-bs-toggle="collapse" href="#PHPCRUDObject" role="button" aria-expanded="false" aria-controls="PHPCRUDObject">
+Database Connect <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+</h1>
+
+<div class="collapse" id="PHPCRUDObject">   
+<hr>
+
+<h3>Create a MySQL Table (DEMO DATABASE TABLE)</h3>
+<pre>
+<code>
+<span class="text-danger">
+CREATE TABLE MyGuests (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+</span>
+</code>
+</pre>
+<hr>
+
+
+<h3>MySQLi Object-Oriented</h3>
+<pre>
+<code>
+
+$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Connection Name
+$conn = new mysqli($servername, $username, $password);
+
+// Check Connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+
+</code>
+</pre>
+<hr>
+
+
+<h3>PHP Data Objects (PDO)</h3>
+<pre>
+<code>
+$servername = "localhost";
+$username = "username";
+$password = "password";
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
+  
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Connected successfully";
+} 
+
+  catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
+</code>
+</pre>
+<hr>
+
+</div>
+
+
+ <h1 class="text-success" data-bs-toggle="collapse" href="#PHPCRUDSTATEMENT" role="button" aria-expanded="false" aria-controls="PHPCRUDSTATEMENT">
+Create Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+</h1>
+
+<div class="collapse" id="PHPCRUDSTATEMENT"> 
+
+<hr>
+<h3>MYSQLi Create Statement</h3>
+<pre>
+<code>
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "<span class="text-danger">INSERT INTO MyGuests (firstname, lastname, email) VALUES ('John', 'Doe', 'john@example.com')</span>"; 
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+</code>
+</pre>
+<hr>
+
+<h3>PDO Create Statement</h3>
+<pre>
+<code>
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDBPDO";
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  
+  $sql = "<span class="text-danger">INSERT INTO MyGuests (firstname, lastname, email) VALUES ('John', 'Doe', 'john@example.com')</span>";
+  
+  // use exec() because no results are returned
+  $conn->exec($sql);
+  
+  echo "New record created successfully";
+} 
+
+  catch(PDOException $e) {
+  echo $sql . "" . $e->getMessage();
+}
+
+$conn = null;
+</code>
+</pre>
+<hr>
+</div>
+
+
+
+<h1 class="text-success" data-bs-toggle="collapse" href="#PHPCRUDDELETESTATEMENT" role="button" aria-expanded="false" aria-controls="PHPCRUDDELETESTATEMENT">
+Delete Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+</h1>
+
+<div class="collapse" id="PHPCRUDDELETESTATEMENT"> 
+<hr>
+<h3>MYSQLi DELETE Statement</h3>
+<pre>
+<code>
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+// sql to delete a record
+$sql = "<span class="text-danger">DELETE FROM MyGuests WHERE id=3</span>";
+
+if ($conn->query($sql) === TRUE) {
+  echo "Record deleted successfully";
+} else {
+  echo "Error deleting record: " . $conn->error;
+}
+
+$conn->close();	
+</code>
+</pre>
+<hr>
+<h3>PDO DELETE Statement</h3>
+<pre>
+<code>
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDBPDO";
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  // sql to delete a record
+  $sql = "<span class="text-danger">DELETE FROM MyGuests WHERE id=3</span>";
+
+  // use exec() because no results are returned
+  $conn->exec($sql);
+  echo "Record deleted successfully";
+} 
+
+  catch(PDOException $e) {
+  echo $sql . "" . $e->getMessage();
+}
+
+$conn = null;
+</code>
+</pre>
+<hr>
+</div>
+
+
+
+
+
+<h1 class="text-success" data-bs-toggle="collapse" href="#PHPCRUDSELECT" role="button" aria-expanded="false" aria-controls="PHPCRUDSELECT">
+Select Data Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+</h1>
+
+<div class="collapse" id="PHPCRUDSELECT"> 
+<hr>
+<h3>MYSQLi Select Statement</h3>
+<pre>
+<code>
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "<span class="text-danger">SELECT id, firstname, lastname FROM MyGuests</span>";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
+</code>
+</pre>
+<hr>
+<h3>PDO Select Statement</h3>
+<pre>
+<code>
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDB";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "<span class="text-danger">SELECT id, firstname, lastname FROM MyGuests</span>";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+	
+  // output data of each row
+  while($row = mysqli_fetch_assoc($result)) {
+    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "";
+  }
+} 
+
+  else {
+  echo "0 results";
+}
+
+mysqli_close($conn);
+</code>
+</pre>
+<hr>
+</div>
+
+
+
+
+<h1 class="text-success" data-bs-toggle="collapse" href="#PHPCRUDUPDATE" role="button" aria-expanded="false" aria-controls="PHPCRUDUPDATE">
+Update Data Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+</h1>
+
+<div class="collapse" id="PHPCRUDUPDATE"> 
+<hr>
+<h3>MYSQLi Update Statement</h3>
+<pre>
+<code>
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "<span class="text-danger">UPDATE MyGuests SET lastname='Doe' WHERE id=2</span>";
+
+if ($conn->query($sql) === TRUE) {
+  echo "Record updated successfully";
+} else {
+  echo "Error updating record: " . $conn->error;
+}
+
+$conn->close();
+</code>
+</pre>
+<hr>
+<h3>PDO Update Statement</h3>
+<pre>
+<code>
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDBPDO";
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  $sql = "<span class="text-danger">UPDATE MyGuests SET lastname='Doe' WHERE id=2</span>";
+
+  // Prepare statement
+  $stmt = $conn->prepare($sql);
+
+  // execute the query
+  $stmt->execute();
+
+  // echo a message to say the UPDATE succeeded
+  echo $stmt->rowCount() . " records UPDATED successfully";
+} 
+
+  catch(PDOException $e) {
+  echo $sql . "<br>" . $e->getMessage();
+}
+
+$conn = null;
+</code>
+</pre>
+<hr>
+</div>
+
+
+
+  </div>
+</div>
+    
+    
+<!-- DjangoCRUD start -->  
+<div class="collapse" id="DjangoCRUD">
+  <div class="card card-body">
+
+
+ <h1 class="text-primary" data-bs-toggle="collapse" href="#DJANGOCRUDSTATEMENT" role="button" aria-expanded="false" aria-controls="DJANGOCRUDSTATEMENT">
+Django Create Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+</h1>
+
+<div class="collapse" id="DJANGOCRUDSTATEMENT"> 
+
+<h1>Update Data With MySQLi</h1>
+<hr>
+<h3>MYSQLi Update Statement</h3>
+<pre>
+<code>
+</code>
+</pre>
+<hr>
+<h3>PDO Update Statement</h3>
+<pre>
+<code>
+</code>
+</pre>
+<hr>
+
+</div>
+
+
+
+
+  </div>
+</div>
+<!-- DjangoCRUD end -->    
+    
+  
+<!-- Virtualenv start -->  
+ <div class="collapse" id="virtualenv">
+  <div class="card card-body">
+   <h1 style="text-align: left;" class="text-secondary" data-bs-toggle="collapse" href="#virtualenv" role="button" aria-expanded="false" aria-controls="virtualenv">How to install 
+   virtualenv <i aria-hidden="true" class="fa fa-angle-double-down"></i></h1>
+
+<hr>
+<h3>Install <b>pip</b> first</h3>
+<pre><code>$ sudo apt-get install python3-pip
+</code></pre>
+
+<hr>
+<h3>Then install <b>virtualenv</b> using pip3</h3>
+<pre><code>$ sudo pip3 install virtualenv 
+</code></pre>
+
+<hr>
+<h3>Now create a virtual environment</h3>
+<pre><code>$ virtualenv venv 
+</code></pre>
+<blockquote>
+<p>you can use any name insted of <b>venv</b></p>
+</blockquote>
+
+<hr>
+<h3>You can also use a Python interpreter of your choice</h3>
+<pre><code>$ virtualenv -p /usr/bin/python2.7 venv
+</code></pre>
+
+
+<hr>
+<h3>Active your virtual environment:</h3>
+<pre><code>$ source venv/bin/activate
+</code></pre>
+
+
+<hr>
+<h3>Using fish shell:</h3>
+<pre><code>$ source venv/bin/activate.fish
+</code></pre>
+
+
+<hr>
+<h3>To deactivate:</h3>
+<pre><code>$ deactivate
+</code></pre>
+
+
+<hr>
+<h3>Create virtualenv using Python3</h3>
+<pre><code>$ virtualenv -p python3 myenv
+</code></pre>
+
+
+<hr>
+<h3>Instead of using virtualenv you can use this command in Python3</h3>
+<pre><code>$ python3 -m venv myenv</code></pre>
+	
+<hr>
+<h3>Install requirments:</h3><pre><code>$ pip install -r requirments.txt&nbsp;</code></pre>
+<hr>
+</div>
+</div>
+
+<!-- Virtualenv End -->         
+  
+  
+  
+<!-- image Start -->  
+<br> 
+<div>  
+<img src="https://needyamin.github.io/img/YAMiN.png" id="X" class="rounded mx-auto d-block">
+
+<style>
+#X {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  position: relative;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes example {
+  0%   {background-color:white; left:0px; top:0px;}
+  25%  {background-color:#FFFF99; left:0px; top:0px;}
+  50%  {background-color:skyblue; left:0px; top:0px;}
+  75%  {background-color:#90ee90; left:0px; top:0px;}
+  100% {background-color:white; left:0px; top:0px;}
+}
+
+#X:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+  }
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+</style>
+</div> 
+<br>
+ 
+<!-- image end -->
+
+    
+ <div class="body card p-3" >
+	 <h3 style="text-align:center;">What is CRUD?</h3>
+ In computer programming, create, read, update, and delete  are the four basic operations of persistent storage. CRUD is also sometimes used to describe user interface conventions that facilitate viewing, searching, and changing information using computer-based forms and reports.
+ </div>
+    
+    
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+  </body>
+  
+
+ <div style="margin-top:3%;text-align:center;"> 
+	Copyright © 2021 by YAMiN <br>
+</div>
+
+  
+  
+</html>
