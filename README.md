@@ -1,4 +1,3 @@
-# all-crud-operations
+# All CRUD Operations
 Basic CRUD Operations for Demand Programming Languages
-
-https://needyamin.github.io/all-crud-operations/
+> Just open this link: https://needyamin.github.io/all-crud-operations
