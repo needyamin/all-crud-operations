@@ -29,6 +29,10 @@
    PHP+MYSQL CRUD <i aria-hidden="true" class="fa fa-angle-double-down"></i>
   </button>
   
+  <button class="btn-sm btn-primary" style="padding:5px;" data-bs-toggle="collapse" href="#SQLCRUD" role="button" aria-expanded="false" aria-controls="SQLCRUD">
+   SQL CRUD <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+  </button>
+  
   <button class="btn-sm btn-danger" style="padding:5px;" data-bs-toggle="collapse" href="#DjangoCRUD" role="button" aria-expanded="false" aria-controls="DjangoCRUD">
    Django CRUD <i aria-hidden="true" class="fa fa-angle-double-down"></i>
   </button>
@@ -99,22 +103,6 @@ Database Connect <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 </h1>
 
 <div class="collapse" id="PHPCRUDObject">   
-<hr>
-
-<h3>Create a MySQL Table (DEMO DATABASE TABLE)</h3>
-<pre>
-<code>
-<span class="text-danger">
-CREATE TABLE MyGuests (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-firstname VARCHAR(30) NOT NULL,
-lastname VARCHAR(30) NOT NULL,
-email VARCHAR(50),
-reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)
-</span>
-</code>
-</pre>
 <hr>
 
 
@@ -448,12 +436,219 @@ $conn = null;
 </code>
 </pre>
 <hr>
+
 </div>
 
+
+
+
+
+
+<h1 class="text-success" data-bs-toggle="collapse" href="#PHPCRUDBasic" role="button" aria-expanded="false" aria-controls="PHPCRUDBasic">
+  Basic CRUD with POST Form Action <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+  </h1>
+  
+  <div class="collapse" id="PHPCRUDBasic"> 
+  <hr>
+  <h3>Basic Insert POST Method</h3>
+  <pre>
+  <code>
+    <span class="text-success"># Connect to mysql server </span>
+    $connection = new mysqli ('localhost','username','password','database_name');
+
+    <span class="text-success"># If Condition Check Error</span>
+    if ($connection->connect_error) {
+        die("database not found"); #data stop;
+    } 
+    
+    <span class="text-success"># If Condition Check True</span>
+    else {
+    #print"success";
+    }
+    
+  <span class="text-success"> ############ When Clicked Action POST Start ############</span>
+    if(isset($_POST['submit_hit']))  <span class="text-danger">{</span>
+    
+  <span class="text-success"># Store post value data in Variables </span>
+    $f = $_POST['fname']; 
+    $l = $_POST['lname'];
+    $e = $_POST['email'];
+    $p = $_POST['password'];
+    $p = md5($p);
+    
+    <span class="text-success"># Fire SQL Query</span>
+    $sql = "INSERT INTO `sign_up` (`id`, `fname`, `lname`, `email`, `password`) VALUES (NULL, '$f', '$l', '$e', '$p')";
+    $connection->query($sql);
+    echo "your sign up process is successfully done";
+    
+    <span class="text-danger">}</span>
+
+<span class="text-success"> ############ When Clicked Action POST End ############<span>
+
+  </code>
+  </pre>
+  <hr>
+  <h3>Basic SELECT</h3>
+  <pre>
+  <code>
+  <span class="text-success"> # Connect To The Database Server </span>
+    $connection = new mysqli ('localhost','needyamin','Yamin143','project2'); 
+  
+    <span class="text-success"> # SELECT ALL FROM Database Table</span>
+    $f = "SELECT * FROM `sign_up`";
+    $result = $connection->query($f);
+    
+    <span class="text-success"> # While Loop Fetch All Table Rows</span>
+    while ($row = $result->fetch_assoc())<span class="text-danger">{</span>
+      
+  <span class="text-success"> # Echo your Rows</span>     
+    echo $row['id'];
+    echo $row['fname'];
+    echo $row['lname'];
+    echo $row['email'];
+    echo $row['password'];  
+    <span class="text-danger">};</span>
+
+  </code>
+  </pre>
+  <hr>
+</div>
+
+
+
+
+
+
+
+
+</div>
 
 
   </div>
 </div>
+    
+    
+<!-- SQL CRUD START -->
+<div class="collapse" id="SQLCRUD">
+<div class="card card-body">
+	  
+	  
+<h1 class="text-primary" data-bs-toggle="collapse" 
+href="#SQLCRUDObject" role="button" aria-expanded="false" 
+aria-controls="SQLCRUDObject">
+Database Table Query <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+</h1>
+
+<div class="collapse" id="SQLCRUDObject">   
+<hr>
+
+<h3>Create a MySQL Table (DEMO DATABASE TABLE)</h3>
+<pre>
+<code>
+<span class="text-danger">
+CREATE TABLE MyGuests (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+</span>
+</code>
+</pre>
+<hr>
+</div>	  
+
+
+	  
+	  
+	  
+	  
+<h1 class="text-primary" data-bs-toggle="collapse" href="#SQLSTATEMETN" role="button" aria-expanded="false" aria-controls="SQLSTATEMETN">
+SQL CRUD Operations <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+</h1>
+
+<div class="collapse" id="SQLSTATEMETN"> 
+<hr>
+<h3>SQL Create/INSERT</h3>
+<pre>
+<code>
+INSERT INTO MyGuests (firstname, lastname, email) VALUES ('John', 'Doe', 'john@example.com')	
+</code>
+</pre>
+<hr>
+
+
+<h3>SQL Read/SELECT</h3>
+<pre>
+<code>
+SELECT * FROM MyGuests
+
+or
+
+SELECT id, firstname, lastname FROM MyGuests	
+</code>
+</pre>
+<hr>
+
+
+
+<h3>SQL Write/UPDATE</h3>
+<pre>
+<code>
+UPDATE MyGuests SET lastname='Doe' WHERE id=1	
+</code>
+</pre>
+<hr>
+
+
+
+
+<h3>SQL Delete</h3>
+<pre>
+<code>
+DELETE FROM MyGuests WHERE id=3	
+</code>
+</pre>
+<hr>
+
+
+<h3>Join Statement</h3>
+<pre>
+<code>
+</code>
+</pre>
+<hr>
+
+<h3>AND OR Statement</h3>
+<pre>
+<code>
+</code>
+</pre>
+<hr>
+
+
+
+<h3>SQL DESC</h3>
+<pre>
+<code>
+</code>
+</pre>
+<hr>
+
+
+<h3>SQL ASC</h3>
+<pre>
+<code>
+</code>
+</pre>
+<hr>
+ 
+</div>
+</div>
+</div>
+<!-- SQL CRUD end -->   
+    
     
     
 <!-- DjangoCRUD start -->  
@@ -461,21 +656,15 @@ $conn = null;
   <div class="card card-body">
 
 
- <h1 class="text-primary" data-bs-toggle="collapse" href="#DJANGOCRUDSTATEMENT" role="button" aria-expanded="false" aria-controls="DJANGOCRUDSTATEMENT">
-Django Create Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+ <h1 class="text-danger" data-bs-toggle="collapse" href="#DJANGOCRUDSTATEMENT" role="button" aria-expanded="false" aria-controls="DJANGOCRUDSTATEMENT">
+Django Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 </h1>
 
 <div class="collapse" id="DJANGOCRUDSTATEMENT"> 
-
-<h1>Update Data With MySQLi</h1>
 <hr>
-<h3>MYSQLi Update Statement</h3>
-<pre>
-<code>
-</code>
-</pre>
+<h1>Update Statement</h1>
 <hr>
-<h3>PDO Update Statement</h3>
+<h3>Create Statement</h3>
 <pre>
 <code>
 </code>
