@@ -17,6 +17,10 @@
     
 <p style="text-align:center;">
 	
+  <button class="btn-sm btn-success" style="padding:5px;" data-bs-toggle="collapse" href="#linuxCommand" role="button" aria-expanded="false" aria-controls="linuxCommand">
+    Linux Command <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+   </button>
+
   <button class="btn-sm btn-primary" style="padding:5px;" data-bs-toggle="collapse" href="#Git" role="button" aria-expanded="false" aria-controls="Git">
    Git Command <i aria-hidden="true" class="fa fa-angle-double-down"></i>
   </button>	
@@ -38,6 +42,62 @@
   </button>
   
 </p>
+
+<!-- Linux Command Line Start-->
+<div class="collapse" id="linuxCommand">
+  <div class="card card-body">
+<h1 style="text-align: left;" class="text-success" data-bs-toggle="collapse" href="#linuxCommand" role="button" aria-expanded="false" aria-controls="linuxCommand">Linux Command Line <i aria-hidden="true" class="fa fa-angle-double-down"></i></h1>
+<hr>
+
+<h3>Create Folder</h3>
+<pre><code> 
+$ mkdir foldername
+</code></pre>
+<hr>	
+
+<h3>Delete Folder</h3>
+<pre><code> 
+$ rmdir foldername
+</code></pre>
+<hr>	
+
+
+<h3>Create File</h3>
+<pre><code> 
+$ touch filename.extension
+</code></pre>
+<hr>	
+
+<h3>Delete File</h3>
+<pre><code> 
+$ rm filename.extension
+</code></pre>
+<hr>	
+
+<h3>Read File In Terminal</h3>
+<pre><code> 
+$ cat filename
+</code></pre>
+<hr>	
+
+<h3>Edit File in Text Editor</h3>
+<pre><code> 
+$ nano filename
+</code></pre>
+<hr>	
+
+<h3>Symlink</h3>
+<pre><code> 
+root@linux:~<span class="text-success">/target_folder_in</span>$ sudo ln -s /home/target_folder_out/<span class="text-success">Filename_YAMiN.yml</span>
+</code></pre>
+<hr>	
+
+
+
+</div> </div> 
+<!-- Linux Command Line End-->
+
+
 
 
 <!-- Git Start-->
@@ -573,7 +633,7 @@ SQL CRUD Operations <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 <h3>SQL Create/INSERT</h3>
 <pre>
 <code>
-INSERT INTO MyGuests (firstname, lastname, email) VALUES ('John', 'Doe', 'john@example.com')	
+INSERT INTO MyGuests (firstname, lastname, email) VALUES ('<span class="text-danger">John</span>', '<span class="text-danger">Doe</span>', '<span class="text-danger">john@example.com</span>')	
 </code>
 </pre>
 <hr>
@@ -616,30 +676,74 @@ DELETE FROM MyGuests WHERE id=3
 <h3>Join Statement</h3>
 <pre>
 <code>
+<b class="text-success">Inner Join</b>
+SELECT <span class="text-danger">column_name(s)</span> FROM <span class="text-danger">table1</span> INNER JOIN <span class="text-danger">table2</span> ON <span class="text-danger">table1.column_name</span> = <span class="text-danger">table2.column_name</span>;
+
+<b class="text-success">LEFT JOIN</b>
+SELECT <span class="text-danger">column_name(s)</span> FROM <span class="text-danger">table1</span> LEFT JOIN <span class="text-danger">table2</span> ON <span class="text-danger">table1.column_name</span> = <span class="text-danger">table2.column_name</span>;
+
+<b class="text-success">RIGHT JOIN</b>
+SELECT <span class="text-danger">column_name(s)</span> FROM <span class="text-danger">table1</span> RIGHT JOIN table2 ON <span class="text-danger">table1.column_name</span> = <span class="text-danger">table2.column_name</span>;
+
+<b class="text-success">Full JOIN</b>
+SELECT <span class="text-danger">column_name(s)</span> FROM <span class="text-danger">table1</span> FULL OUTER JOIN <span class="text-danger">table2</span> ON <span class="text-danger">table1.column_name</span> = <span class="text-danger">table2.column_name</span> WHERE <span class="text-danger">condition</span>; 
+
 </code>
 </pre>
 <hr>
 
-<h3>AND OR Statement</h3>
+<h3>AND, OR and NOT Operators</h3>
 <pre>
 <code>
+<b class="text-success">AND</b> 
+SELECT  <span class="text-danger">column1, column2,</span> FROM <span class="text-danger">table_name</span> WHERE  <span class="text-danger">condition1</span> AND  <span class="text-danger">condition2</span> AND  <span class="text-danger">condition3</span>; 
+
+<b class="text-success">OR</b> 
+SELECT  <span class="text-danger">column1, column2,</span> FROM <span class="text-danger">table_name</span> WHERE  <span class="text-danger">condition1</span> OR  <span class="text-danger">condition2</span> OR  <span class="text-danger">condition3</span>; 
+
+<b class="text-success">NOT</b>
+SELECT <span class="text-danger">column1, column2,</span> FROM <span class="text-danger">table_name</span> WHERE NOT <span class="text-danger">condition</span>; 
+
+
 </code>
 </pre>
 <hr>
 
 
 
-<h3>SQL DESC</h3>
+<h3>SQL LIKE %value%</h3>
 <pre>
 <code>
+SELECT <span class="text-danger">column1, column2,</span> FROM <span class="text-danger">table_name</span> WHERE <span class="text-danger">columnN</span> LIKE <span class="text-danger">% pattern values %</span>; 
 </code>
 </pre>
 <hr>
 
 
-<h3>SQL ASC</h3>
+<h3>SQL DESC/ASC</h3>
 <pre>
 <code>
+<b class="text-success">DESC</b>
+SELECT column1, column2, FROM table_name <span class="text-danger">ORDER BY</span> column1, column2, <span class="text-danger">DESC</span>; 
+
+<b class="text-success">ASC</b>
+SELECT column1, column2, FROM table_name <span class="text-danger">ORDER BY</span> column1, column2, <span class="text-danger">ASC</span>; 
+
+</code>
+</pre>
+<hr>
+
+
+<h3>SQL ADVANCED</h3>
+<pre>
+<code>
+<b class="text-success">SQL BACKUP DATABASE</b>  
+BACKUP DATABASE <span class="text-danger">testDB</span> TO DISK = '<span class="text-danger">D:\backups\testDB.bak</span>'; 
+
+<b class="text-success">SQL DROP DATABASE</b>  
+DROP DATABASE <span class="text-danger">databasename</span>;
+
+
 </code>
 </pre>
 <hr>
