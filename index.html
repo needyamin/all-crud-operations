@@ -33,64 +33,184 @@
    PHP+MYSQL CRUD <i aria-hidden="true" class="fa fa-angle-double-down"></i>
   </button>
   
+  <button class="btn-sm btn-danger" style="padding:5px;" data-bs-toggle="collapse" href="#JavaScriptCRUD" role="button" aria-expanded="false" aria-controls="JavaScriptCRUD">
+    JavaScript CRUD <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+   </button>
+
+
   <button class="btn-sm btn-primary" style="padding:5px;" data-bs-toggle="collapse" href="#SQLCRUD" role="button" aria-expanded="false" aria-controls="SQLCRUD">
    SQL CRUD <i aria-hidden="true" class="fa fa-angle-double-down"></i>
   </button>
+  
+  
+    <button class="btn-sm btn-secondary" style="padding:5px;" data-bs-toggle="collapse" href="#phpJQueryAjax" role="button" aria-expanded="false" aria-controls="phpJQueryAjax">
+   PHP+JQuery+Ajax CRUD <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+  </button>
+  
   
   <button class="btn-sm btn-danger" style="padding:5px;" data-bs-toggle="collapse" href="#DjangoCRUD" role="button" aria-expanded="false" aria-controls="DjangoCRUD">
    Django CRUD <i aria-hidden="true" class="fa fa-angle-double-down"></i>
   </button>
   
+  
+ 
 </p>
+
+
+
+
+<!-- JavaScript CRUD  start -->  
+<div class="collapse" id="JavaScriptCRUD">
+  <div class="card card-body">
+   <h1 style="text-align: left;" class="text-secondary" data-bs-toggle="collapse" href="#JavaScriptCRUD" role="button" aria-expanded="false" aria-controls="JavaScriptCRUD">Core 
+    JavaScript CRUD <i aria-hidden="true" class="fa fa-angle-double-down"></i></h1>
+
+<hr/>
+<h3>getData JavaScript</h3>
+<pre>
+<code>
+  function getData(){
+   <span style="color: red;"> ///////////////////////// </span>
+    url = "<span style="color: blue;">needyamin.txt</span>";
+    fetch(url).then((response)=>{
+      return response.text();
+      }).then((data)=>{
+        <b>console.log(data);</b>
+        })
+  <span style="color: red;"> ///////////////////////// </span>
+    }
+  getData()
+  
+</code>
+</pre>
+<hr/>
+
+<h3>getData JSON JavaScript</h3>
+<pre>
+<code>
+  function getData(){
+   <span style="color: red;"> ///////////////////////// </span>
+    url = "<span style="color: blue;">https://api.github.com/users</span>";
+    fetch(url).then((response)=>{
+      return response.<b>json()</b>;
+      }).then((data)=>{
+        <b>console.log(data);</b>
+        })
+  <span style="color: red;"> ///////////////////////// </span>
+    }
+  getData()
+  
+</code>
+</pre>
+<hr/>
+
+
+
+<h3>postData JSON JavaScript</h3>
+<pre>
+<code>
+
+  <span style="color: red;">//store in variable</span>
+  var nm = document.getElementById("<span style="color: blue;">name</span>").value;
+  var em = document.getElementById("<span style="color: blue;">email</span>").value;
+  var mb = document.getElementById("<span style="color: blue;">mobile</span>").value;
+  
+  <span style="color: red;">//array variable</span>
+  var data = {myname:nm, myemail:em, myphone:mb};
+  
+  
+  <span style="color: red;">//target form</span>
+  document.getElementById('<span style="color: blue;">formID</span>').addEventListener('submit', function (e) {
+    
+    <span style="color: red;">//prevent the normal submission of the form</span>
+      e.preventDefault();
+      
+      <span style="color: red;">/////////////// AJAX START////////////////////</span>
+      url = "<span style="color: blue;">insert.php</span>";
+      params = {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data),
+      }
+    fetch(url, params).then(response=> response.json()).then(data => console.log(data))
+    <span style="color: red;">/////////////// AJAX END////////////////////</span>
+     
+         
+  });
+  
+</code>
+</pre>
+<hr/>
+
+
+
+
+
+</div>
+</div>
+
+<!-- JavaScript CRUD  End -->    
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- Linux Command Line Start-->
 <div class="collapse" id="linuxCommand">
   <div class="card card-body">
 <h1 style="text-align: left;" class="text-success" data-bs-toggle="collapse" href="#linuxCommand" role="button" aria-expanded="false" aria-controls="linuxCommand">Linux Command Line <i aria-hidden="true" class="fa fa-angle-double-down"></i></h1>
-<hr>
+<hr/>
 
 <h3>Create Folder</h3>
 <pre><code> 
 $ mkdir <span class="text-danger">foldername</span>
 </code></pre>
-<hr>	
+<hr/>	
 
 <h3>Delete Folder</h3>
 <pre><code> 
 $ rmdir <span class="text-danger">foldername</span>
 </code></pre>
-<hr>	
+<hr/>	
 
 
 <h3>Create File</h3>
 <pre><code> 
 $ touch <span class="text-danger">filename.extension</span>
 </code></pre>
-<hr>	
+<hr/>	
 
 <h3>Delete File</h3>
 <pre><code> 
 $ rm <span class="text-danger">filename.extension</span>
 </code></pre>
-<hr>	
+<hr/>	
 
 <h3>Read File In Terminal</h3>
 <pre><code> 
 $ cat <span class="text-danger">filename</span>
 </code></pre>
-<hr>	
+<hr/>	
 
 <h3>Edit File in Text Editor</h3>
 <pre><code> 
 $ nano <span class="text-danger">filename</span>
 </code></pre>
-<hr>	
+<hr/>	
 
 <h3>Symlink</h3>
 <pre><code> 
 root@linux:~<span class="text-danger">/target_folder_in</span>$ sudo ln -s /home/target_folder_out/<span class="text-danger">Filename_YAMiN.yml</span>
 </code></pre>
-<hr>	
+<hr/>	
 
 
 
@@ -104,45 +224,45 @@ root@linux:~<span class="text-danger">/target_folder_in</span>$ sudo ln -s /home
 <div class="collapse" id="Git">
   <div class="card card-body">
 <h1 style="text-align: left;" class="text-primary" data-bs-toggle="collapse" href="#Git" role="button" aria-expanded="false" aria-controls="Git">Git Command Line <i aria-hidden="true" class="fa fa-angle-double-down"></i></h1>
-<hr>
+<hr/>
   
 <h3>At first clone git repository</h3>
 <pre><code> 
 $ git clone <span class="text-danger">http://github.com/needyamin/target-repository.git</span>
 </code></pre>
 	  
-<hr>	  
+<hr/>	  
 <h3>Create an empty Git repository or reinitialize an existing one</h3>
 <pre><code> 
 $ git init 
 </code></pre>
 
-<hr>
+<hr/>
 <h3>Add Your Edited Files to Git</h3>
 <pre><code> 
 $ git add .
 </code></pre>
 
-<hr>
+<hr/>
 <h3>Check Added Git Status</h3>
 <pre><code> 
 $ git status
 </code></pre>
 
-<hr>
+<hr/>
 <h3>Commit your added Git files</h3>
 <pre><code> 
 $ git commit -m "<span class="text-danger">First commit</span>"
 </code></pre>
 
-<hr>
+<hr/>
 <h3>Push Your Files to the Main Origin Git Repository</h3>
 <pre><code> 
 $ git push origin main
 </code></pre>
    
 
-<hr>
+<hr/>
 <h3> If want to make new Branch</h3>
 <pre><code> 
 $ git checkout -b <span class="text-danger">yourbranchname</span>
@@ -163,7 +283,7 @@ Database Connect <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 </h1>
 
 <div class="collapse" id="PHPCRUDObject">   
-<hr>
+<hr/>
 
 
 <h3>MySQLi Object-Oriented</h3>
@@ -185,7 +305,7 @@ echo "Connected successfully";
 
 </code>
 </pre>
-<hr>
+<hr/>
 
 
 <h3>PHP Data Objects (PDO)</h3>
@@ -208,7 +328,7 @@ try {
 }
 </code>
 </pre>
-<hr>
+<hr/>
 
 </div>
 
@@ -219,7 +339,7 @@ Create Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 
 <div class="collapse" id="PHPCRUDSTATEMENT"> 
 
-<hr>
+<hr/>
 <h3>MYSQLi Create Statement</h3>
 <pre>
 <code>
@@ -241,13 +361,13 @@ $sql = "<span class="text-danger">INSERT INTO MyGuests (firstname, lastname, ema
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+  echo "Error: " . $sql . "<br/>" . $conn->error;
 }
 
 $conn->close();
 </code>
 </pre>
-<hr>
+<hr/>
 
 <h3>PDO Create Statement</h3>
 <pre>
@@ -278,7 +398,7 @@ try {
 $conn = null;
 </code>
 </pre>
-<hr>
+<hr/>
 </div>
 
 
@@ -288,7 +408,7 @@ Delete Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 </h1>
 
 <div class="collapse" id="PHPCRUDDELETESTATEMENT"> 
-<hr>
+<hr/>
 <h3>MYSQLi DELETE Statement</h3>
 <pre>
 <code>
@@ -316,7 +436,7 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();	
 </code>
 </pre>
-<hr>
+<hr/>
 <h3>PDO DELETE Statement</h3>
 <pre>
 <code>
@@ -346,7 +466,7 @@ try {
 $conn = null;
 </code>
 </pre>
-<hr>
+<hr/>
 </div>
 
 
@@ -358,7 +478,7 @@ Select Data Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 </h1>
 
 <div class="collapse" id="PHPCRUDSELECT"> 
-<hr>
+<hr/>
 <h3>MYSQLi Select Statement</h3>
 <pre>
 <code>
@@ -380,7 +500,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br/>";
   }
 } else {
   echo "0 results";
@@ -388,7 +508,7 @@ if ($result->num_rows > 0) {
 $conn->close();
 </code>
 </pre>
-<hr>
+<hr/>
 <h3>PDO Select Statement</h3>
 <pre>
 <code>
@@ -423,7 +543,7 @@ if (mysqli_num_rows($result) > 0) {
 mysqli_close($conn);
 </code>
 </pre>
-<hr>
+<hr/>
 </div>
 
 
@@ -434,7 +554,7 @@ Update Data Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 </h1>
 
 <div class="collapse" id="PHPCRUDUPDATE"> 
-<hr>
+<hr/>
 <h3>MYSQLi Update Statement</h3>
 <pre>
 <code>
@@ -461,7 +581,7 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 </code>
 </pre>
-<hr>
+<hr/>
 <h3>PDO Update Statement</h3>
 <pre>
 <code>
@@ -489,13 +609,13 @@ try {
 } 
 
   catch(PDOException $e) {
-  echo $sql . "<br>" . $e->getMessage();
+  echo $sql . "<br/>" . $e->getMessage();
 }
 
 $conn = null;
 </code>
 </pre>
-<hr>
+<hr/>
 
 </div>
 
@@ -509,7 +629,7 @@ $conn = null;
   </h1>
   
   <div class="collapse" id="PHPCRUDBasic"> 
-  <hr>
+  <hr/>
   <h3>Basic Insert POST Method</h3>
   <pre>
   <code>
@@ -547,7 +667,7 @@ $conn = null;
 
   </code>
   </pre>
-  <hr>
+  <hr/>
   <h3>Basic SELECT</h3>
   <pre>
   <code>
@@ -571,7 +691,7 @@ $conn = null;
 
   </code>
   </pre>
-  <hr>
+  <hr/>
 </div>
 
 
@@ -600,7 +720,7 @@ Database Table Query <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 </h1>
 
 <div class="collapse" id="SQLCRUDObject">   
-<hr>
+<hr/>
 
 <h3>Create a MySQL Table (DEMO DATABASE TABLE)</h3>
 <pre>
@@ -616,7 +736,7 @@ reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 </span>
 </code>
 </pre>
-<hr>
+<hr/>
 </div>	  
 
 
@@ -629,14 +749,14 @@ SQL CRUD Operations <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 </h1>
 
 <div class="collapse" id="SQLSTATEMETN"> 
-<hr>
+<hr/>
 <h3>SQL Create/INSERT</h3>
 <pre>
 <code>
 INSERT INTO MyGuests (firstname, lastname, email) VALUES ('<span class="text-danger">John</span>', '<span class="text-danger">Doe</span>', '<span class="text-danger">john@example.com</span>')	
 </code>
 </pre>
-<hr>
+<hr/>
 
 
 <h3>SQL Read/SELECT</h3>
@@ -649,7 +769,7 @@ or
 SELECT id, firstname, lastname FROM MyGuests	
 </code>
 </pre>
-<hr>
+<hr/>
 
 
 
@@ -659,7 +779,7 @@ SELECT id, firstname, lastname FROM MyGuests
 UPDATE MyGuests SET lastname='Doe' WHERE id=1	
 </code>
 </pre>
-<hr>
+<hr/>
 
 
 
@@ -670,7 +790,7 @@ UPDATE MyGuests SET lastname='Doe' WHERE id=1
 DELETE FROM MyGuests WHERE id=3	
 </code>
 </pre>
-<hr>
+<hr/>
 
 
 <h3>Join Statement</h3>
@@ -690,7 +810,7 @@ SELECT <span class="text-danger">column_name(s)</span> FROM <span class="text-da
 
 </code>
 </pre>
-<hr>
+<hr/>
 
 <h3>AND, OR and NOT Operators</h3>
 <pre>
@@ -707,7 +827,7 @@ SELECT <span class="text-danger">column1, column2,</span> FROM <span class="text
 
 </code>
 </pre>
-<hr>
+<hr/>
 
 
 
@@ -717,7 +837,7 @@ SELECT <span class="text-danger">column1, column2,</span> FROM <span class="text
 SELECT <span class="text-danger">column1, column2,</span> FROM <span class="text-danger">table_name</span> WHERE <span class="text-danger">columnN</span> LIKE <span class="text-danger">% pattern values %</span>; 
 </code>
 </pre>
-<hr>
+<hr/>
 
 
 <h3>SQL DESC/ASC</h3>
@@ -731,7 +851,7 @@ SELECT column1, column2, FROM table_name <span class="text-danger">ORDER BY</spa
 
 </code>
 </pre>
-<hr>
+<hr/>
 
 
 <h3>SQL ADVANCED</h3>
@@ -746,7 +866,7 @@ DROP DATABASE <span class="text-danger">databasename</span>;
 
 </code>
 </pre>
-<hr>
+<hr/>
  
 </div>
 </div>
@@ -765,15 +885,15 @@ Django Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 </h1>
 
 <div class="collapse" id="DJANGOCRUDSTATEMENT"> 
-<hr>
+<hr/>
 <h1>Update Statement</h1>
-<hr>
+<hr/>
 <h3>Create Statement</h3>
 <pre>
 <code>
 </code>
 </pre>
-<hr>
+<hr/>
 
 </div>
 
@@ -784,6 +904,452 @@ Django Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 </div>
 <!-- DjangoCRUD end -->    
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ 
+<!-- phpJQueryAjax Start-->
+<div class="collapse" id="phpJQueryAjax">
+  <div class="card card-body">
+
+
+<h1 class="text-success" data-bs-toggle="collapse" href="#phpJQueryAjaxSTATEMENT" role="button" aria-expanded="false" aria-controls="phpJQueryAjaxSTATEMENT">
+Total Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+</h1>
+
+<div class="collapse" id="phpJQueryAjaxSTATEMENT"> 
+
+<hr/>
+<h3>CDN JQuery</h3>
+<pre>
+<code>
+	
+script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+
+</code>
+</pre>
+<hr/>
+
+<h3>FORM</h3>
+<pre>
+<code>
+	
+< form method="POST" action="" id="formID"> 
+< input type="text" name="name" id="name" placeholder="Your Name"> < br>
+< input type="email" name="email" id="email" placeholder="Email"> < br>
+< input type="number" name="mobile" id="mobile" placeholder="+880"> < br>
+< input type="submit" value="Send" id="JQSend">
+< /form>
+
+<br>
+< div id="msg"> </ div> <br>
+
+< table border="1" id="table_output" style="padding:5px;"></ table>
+
+</code>
+</pre>
+<hr/>
+
+
+
+
+<h3>phpJQueryAjax</h3>
+<pre>
+<code>
+
+	
+//////// GET METHOD JQURY START //////////		
+function showdata(){
+	output = "";
+	$.ajax({
+		url: "get.php",
+		method: "GET",
+		dataType: 'json',
+		success:function(data){
+			console.log(data);
+		/////////
+		if(data){x = data;}
+		else {x = ""}
+		
+		for(i=0; i < x.length; i++){
+		//console.log(x[i].name);
+			output +="< tr>< td>" + x[i].name + "</ td>< td>" + x[i].email + 
+			"</ td>< td>" + x[i].mobile + "</ td></ tr>";
+			}
+			
+			$("#table_output").html(output);
+			
+		//////////////	
+		}
+		
+		
+		})
+	}
+showdata()	
+//////// GET METHOD JQURY END //////////	
+
+
+	
+//////// INSERT METHOD JQURY //////////	
+	
+//#JQSend is submit value ID and "e" for event object
+$("#JQSend").click(function(e){
+e.preventDefault(); //stop reload when click submit button
+//console.log("YAMIN"); //check console log if it works of not
+
+// store values from action (remember target ID name only)
+let nm = $("#name").val();
+let em = $("#email").val();
+let mb = $("#mobile").val();
+
+/*
+console.log(nm);
+console.log(em);
+console.log(mb);
+*/
+
+mydata = {myname:nm, myemail:em, myphone:mb};
+
+//console.log(mydata);
+
+//////////////////////
+$.ajax({
+	url:"insert.php",
+	method: "POST",
+	data: JSON.stringify(mydata),
+	
+	//print success data from insert.php message start
+	success: function(data){
+		console.log(data);
+		
+	//print data in html
+	msg ="< div>"+ data + "</ div>";
+	$("#msg").html(msg);
+	
+	//clear the form
+	$('#formID')[0].reset();
+	
+	//get data retry
+	showdata()
+			
+	}
+	//print success data from insert.php message end	
+
+		});
+//////////////////////
+
+});
+</code>
+</pre>
+<hr/>
+
+
+
+
+<h3>Create Database</h3>
+<pre>
+<code>
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `jQdata`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userinfo`
+--
+
+CREATE TABLE `userinfo` (
+  `id` int NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `mobile` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `userinfo`
+--
+
+INSERT INTO `userinfo` (`id`, `name`, `email`, `mobile`) VALUES
+(15, 'Yamin', 'needyamin@ansnew.com', '+8801840538007');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `userinfo`
+--
+ALTER TABLE `userinfo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `userinfo`
+--
+ALTER TABLE `userinfo`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+</code>
+</pre>
+<hr/>
+
+
+
+
+
+
+
+
+<h3>insert.php</h3>
+<pre>
+<code>
+	
+$conn = new mysqli("localhost","username","password","database_name");
+
+// Check Connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+//echo "Connected successfully";
+
+
+$data = stripslashes(file_get_contents("php://input"));
+$mydata = json_decode($data, true);
+
+$name = $mydata['myname'];
+$email = $mydata['myemail'];
+$mobile = $mydata['myphone'];
+
+
+$sql = "INSERT INTO `userinfo` (`id`, `name`, `email`, `mobile`) VALUES (NULL, '$name', '$email', '$mobile')";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "
+" . $conn->error;
+}
+
+$conn->close(); 
+
+</code>
+</pre>
+<hr/>
+
+
+<h3>get.php</h3>
+<pre>
+<code>
+$conn = new mysqli("localhost","username","password","database_name");
+
+$sql = "SELECT * from userinfo";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+ $data = array();
+  while($row = $result->fetch_assoc()) {
+	  $data[] = $row;
+	   }
+}
+
+echo json_encode($data)
+
+</code>
+</pre>
+<hr/>
+
+
+
+
+
+
+<!--
+<h3>Video Tutorials</h3>
+<pre>
+<code>
+<iframe src="https://drive.google.com/file/d/1DjOD4kSWTcbT8i3JaTMISc36F0F3lWBO/preview" width="640" height="480" allow="autoplay"></iframe>
+
+Copyright Disclaimer:
+I do not hold any copyright over the songs or footage's.<br>All credit goes to the respective owner/creator of the song/footage's.<br>If you have any issues with it, <br>please feel free to contact with me via YouTube or needyamin@ansnew.com
+
+Fair Use Disclaimer:
+This channel may use some copyrighted materials without specific authorization of the owner.<br>All materials used for entertainment purpose.<br>If you have any complaint then please contact me at needyamin@ansnew.com
+</code>
+</pre>
+<hr/>
+-->
+
+
+
+</div>
+
+
+
+<h1 class="text-success" data-bs-toggle="collapse" href="#phpJQueryAjaxRetriveSTATEMENT" role="button" aria-expanded="false" aria-controls="phpJQueryAjaxRetriveSTATEMENT">
+Retrive Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+</h1>
+
+<div class="collapse" id="phpJQueryAjaxRetriveSTATEMENT"> 
+
+<hr/>
+<h3>Ajax Retrive Statement</h3>
+<pre>
+<code>
+
+//////// GET METHOD JQURY START //////////		
+function showdata(){
+	output = "";
+	$.ajax({
+		url: "get.php",
+		method: "GET",
+		dataType: 'json',
+		success:function(data){
+			console.log(data);
+		/////////
+		if(data){x = data;}
+		else {x = ""}
+		
+		for(i=0; i < x.length; i++){
+		//console.log(x[i].name);
+			output +="<tr><td>" + x[i].name + "</td><td>" + x[i].email + 
+			"</td><td>" + x[i].mobile + "</td></tr>";
+			}
+			
+			$("#table_output").html(output);
+			
+		//////////////	
+		}
+		
+		
+		})
+	}
+showdata()	
+//////// GET METHOD JQURY END //////////	
+
+</code>
+</pre>
+<hr/>
+</div> 
+
+
+
+
+<h1 class="text-success" data-bs-toggle="collapse" href="#phpJQueryINSERTAjaxRetriveSTATEMENT" role="button" aria-expanded="false" aria-controls="phpJQueryINSERTAjaxRetriveSTATEMENT">
+INSERT Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
+</h1>
+
+<div class="collapse" id="phpJQueryINSERTAjaxRetriveSTATEMENT"> 
+
+<hr/>
+<h3>Ajax INSERT Statement</h3>
+<pre>
+<code>
+
+	
+//////// INSERT METHOD JQURY //////////	
+	
+//#JQSend is submit value ID and "e" for event object
+$("#JQSend").click(function(e){
+e.preventDefault(); //stop reload when click submit button
+//console.log("YAMIN"); //check console log if it works of not
+
+// store values from action (remember target ID name only)
+let nm = $("#name").val();
+let em = $("#email").val();
+let mb = $("#mobile").val();
+
+/*
+console.log(nm);
+console.log(em);
+console.log(mb);
+*/
+
+mydata = {myname:nm, myemail:em, myphone:mb};
+
+//console.log(mydata);
+
+//////////////////////
+$.ajax({
+	url:"insert.php",
+	method: "POST",
+	data: JSON.stringify(mydata),
+	
+	//print success data from insert.php message start
+	success: function(data){
+		console.log(data);
+		
+	//print data in html
+	msg ="< div>"+ data + "</ div>";
+	$("#msg").html(msg);
+	
+	//clear the form
+	$('#formID')[0].reset();
+	
+	//get data retry
+	showdata()
+			
+	}
+	//print success data from insert.php message end	
+
+		});
+//////////////////////
+
+});
+</code>
+</pre>
+<hr/>
+</div> 
+
+
+
+ </div> 
+ </div> 
+<!-- phpJQueryAjax End-->   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   
 <!-- Virtualenv start -->  
  <div class="collapse" id="virtualenv">
@@ -791,17 +1357,17 @@ Django Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
    <h1 style="text-align: left;" class="text-secondary" data-bs-toggle="collapse" href="#virtualenv" role="button" aria-expanded="false" aria-controls="virtualenv">How to install 
    virtualenv <i aria-hidden="true" class="fa fa-angle-double-down"></i></h1>
 
-<hr>
+<hr/>
 <h3>Install <b>pip</b> first</h3>
 <pre><code>$ sudo apt-get install python3-pip
 </code></pre>
 
-<hr>
+<hr/>
 <h3>Then install <b>virtualenv</b> using pip3</h3>
 <pre><code>$ sudo pip3 install virtualenv 
 </code></pre>
 
-<hr>
+<hr/>
 <h3>Now create a virtual environment</h3>
 <pre><code>$ virtualenv <span class="text-danger">venv</span> 
 </code></pre>
@@ -809,43 +1375,43 @@ Django Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 <p>you can use any name insted of <b>venv</b></p>
 </blockquote>
 
-<hr>
+<hr/>
 <h3>You can also use a Python interpreter of your choice</h3>
 <pre><code>$ virtualenv -p /usr/bin/python2.7 venv
 </code></pre>
 
 
-<hr>
+<hr/>
 <h3>Active your virtual environment:</h3>
 <pre><code>$ source venv/bin/activate
 </code></pre>
 
 
-<hr>
+<hr/>
 <h3>Using fish shell:</h3>
 <pre><code>$ source venv/bin/activate.fish
 </code></pre>
 
 
-<hr>
+<hr/>
 <h3>To deactivate:</h3>
 <pre><code>$ deactivate
 </code></pre>
 
 
-<hr>
+<hr/>
 <h3>Create virtualenv using Python3</h3>
 <pre><code>$ virtualenv -p python3 <span class="text-danger">myenv</span>
 </code></pre>
 
 
-<hr>
+<hr/>
 <h3>Instead of using virtualenv you can use this command in Python3</h3>
 <pre><code>$ python3 -m <span class="text-danger">venv myenv</span></code></pre>
 	
-<hr>
+<hr/>
 <h3>Install requirments:</h3><pre><code>$ pip install -r <span class="text-danger">requirments.txt</span>&nbsp;</code></pre>
-<hr>
+<hr/>
 </div>
 </div>
 
@@ -854,7 +1420,7 @@ Django Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
   
   
 <!-- image Start -->  
-<br> 
+<br/> 
 <div>  
 <a href="https://github.com/needyamin/" target="_blank"><img src="https://needyamin.github.io/img/YAMiN.png" id="X" class="rounded mx-auto d-block"></a>
 
@@ -901,7 +1467,7 @@ Django Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
 
 </style>
 </div> 
-<br>
+<br/>
  
 <!-- image end -->
 
@@ -925,7 +1491,7 @@ Django Statement <i aria-hidden="true" class="fa fa-angle-double-down"></i>
   
 
  <div style="margin-top:3%;text-align:center;"> 
-	Copyright © 2021 by <a href="https://github.com/needyamin/" style="text-decoration: none;color:none;">YAMiN</a> <br>
+	Copyright © 2021 by <a href="https://github.com/needyamin/" style="text-decoration: none;color:none;">YAMiN</a> <br/>
 </div>
 
   
